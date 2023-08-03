@@ -1,0 +1,327 @@
+<main class="pt-5 mt-3" style="min-height: calc(100vh - 60px);">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalSpumettreFile" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalInitialisationLabel" aria-hidden="true" style="background: linear-gradient(90deg, rgba(226, 244, 242, 0.6) -2.71%, rgba(248, 248, 239, 0.6) 58.43%, rgba(249, 237, 238, 0.6) 100%);">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0">
+          <div class="modal-header border-0 pb-0 align-items-start">
+            <h5 class="mb-0" id="exampleModalInitialisationLabel">Formulaire d'envoi de fichier</h5>
+            <button type="button" class="btn-close ms-md-5" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ">
+            <form class="">
+                <div class="mb-3">
+                    <label class="mb-1">Code Projet <span class="text-danger">*</span></label>
+                    <input class="form-control" placeholder="Ex: 789009873789	" type="text" name="" id="">
+                </div>
+                <div class="mb-3">
+                    <h6><i class="text-success bi-bookmark-check me-2"></i>Type Validation <span class="text-danger">*</span></h6>
+                    <div class="form-check form-check-inline mb-2">
+                      <input class="form-check-input" onclick="variationBloc();" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio1">Seul</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" onclick="variationBloc();" checked="checked" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                      <label class="form-check-label" for="inlineRadio2">Avec Publicité</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" onclick="variationBloc();" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                      <label class="form-check-label" for="inlineRadio3">Comparaison</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" onclick="variationBloc();" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3">
+                      <label class="form-check-label" for="inlineRadio4">Après Publicité</label>
+                    </div>
+                </div>
+
+                <div class="mb-3" id="lieuPub">
+                    <h6><i class="text-success bi-calendar-range me-2"></i>Lieu & délai de publication <span class="text-danger">*</span></h6>
+                    <div class="row">
+                          <div class="col-sm-4 mb-2">
+                              <label class="mb-1">Lieu <span class="text-danger">*</span></label>
+                              <input class="form-control" type="text" placeholder="Lieu de publication">
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                              <label class="mb-1">Date de début <span class="text-danger">*</span></label>
+                              <input class="form-control" type="date" placeholder="Recherche">
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                              <label class="mb-1">Date de fin<span class="text-danger">*</span></label>
+                              <input class="form-control" type="date" placeholder="Recherche">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-2" id="afterPub">
+                    <div class="col-sm-6">
+                        <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Procès Verbal <span class="text-danger">*</span></h6>
+                        <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3">
+                            <div class="m-2 text-center">
+                                <h1 class="display-4 mb-0"><i class="bi-file-earmark-pdf"></i></h1>
+                                <p class="mb-0">Charger le fichier <span class="text-success">ici</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Tableau de modification <span class="text-danger">*</span></h6>
+                        <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3">
+                            <div class="m-2 text-center">
+                                <h1 class="display-4 mb-0"><i class="bi-file-earmark-excel"></i></h1>
+                                <p class="mb-0">Charger le fichier <span class="text-success">ici</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="d-flex justify-content-between">
+                        <div class="me-3">
+                            <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Charger les fichiers <span class="text-danger">*</span></h6>
+                        </div>
+                        <!-- <div class="form-check form-switch form-check-reverse">
+                            <label class="form-check-label style_font_size_small" for="flexSwitchCheckDefault">GeoJSON tout en un</label>
+                              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div> -->
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-4 mb-2">
+                            <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100">
+                                <div class="m-2 text-center">
+                                    <h1 class="display-4 mb-0"><i class="bi-filetype-json"></i></h1>
+                                    <p class="mb-0">Charger le fichier geoJSON <span class="text-success">ici</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100">
+                                <div class="m-2 text-center">
+                                    <h1 class="display-4 mb-0"><i class="bi-file-earmark-excel"></i></h1>
+                                    <p class="mb-0">Charger le fichier socio <span class="text-success">ici</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-2">
+                            <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100">
+                                <div class="m-2 text-center">
+                                    <h1 class="display-4 mb-0"><i class="bi-file-zip"></i></h1>
+                                    <p class="mb-0">Charger le fichier zip <span class="text-success">ici</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row">
+                        <div class="col-lg-6 mb-2">
+                            <div class="mb-1 style_gradient d-flex justify-content-between">
+                                  <div class="h-100 p-2 d-flex align-items-center me-2">
+                                      <div class="me-2">
+                                          <h2 class="mb-0"><i class="bi-file-earmark-excel text-success"></i></h2>
+                                      </div>
+                                      <div class="text-wrap">
+                                          <p class="mb-0 style_font_size_small">nom du fichier excel des données sociales.xls</p>
+                                      </div>
+                                  </div>
+                                  <div class="p-1">
+                                      <a href="#" class="mb-0 text-danger"><i class="bi-x"></i></a>
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="mb-1 style_gradient d-flex justify-content-between">
+                                  <div class="h-100 p-2 d-flex align-items-center me-2">
+                                      <div class="me-2">
+                                          <h2 class="mb-0"><i class="bi-file-zip" style="background: -webkit-linear-gradient(225deg, rgba(251, 203, 44, 0.7) 0%, rgba(230, 39, 51, 0.7) 50%, rgba(17, 99, 61, 0.7) 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;"></i></h2>
+                                      </div>
+                                      <div class="text-wrap">
+                                          <p class="mb-0 style_font_size_small">nom autres fichiers.zip</p>
+                                      </div>
+                                  </div>
+                                  <div class="p-1">
+                                      <a href="#" class="mb-0 text-danger"><i class="bi-x"></i></a>
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="mb-1 style_gradient d-flex justify-content-between">
+                                  <div class="h-100 p-2 d-flex align-items-center me-2">
+                                      <div class="me-2">
+                                          <h2 class="mb-0"><i class="bi-filetype-json"></i></h2>
+                                      </div>
+                                      <div class="text-wrap">
+                                          <p class="mb-0 style_font_size_small">nom fichier GeoJSON des données topographique.GeoJSON</p>
+                                      </div>
+                                  </div>
+                                  <div class="p-1">
+                                      <a href="#" class="mb-0 text-danger"><i class="bi-x"></i></a>
+                                  </div>
+                              </div>
+                        </div>
+                    </div> -->
+                </div>
+              </form>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi-x me-1"></i>Fermer</button>
+            <button type="button" class="btn btn-success shadow-sm"><i class="bi-check me-1"></i>Valider</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-sm-6 mb-2">
+                <div class="">
+                    <h4 class="mb-0">Liste des paramètres pré-définis</h4>
+                    <div class="d-flex flex-nowrap align-items-center">
+                        <!-- <p class="style_bord text-muted mb-0 me-1"><i class="bi-calendar me-2"></i>12 Avril 2022 - 26 Avril 2022</p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-2 justify-content-end">
+                <div class="d-flex justify-content-end mb-2">
+                      <div class="dropdown">
+                      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tout
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end rounded-0 shadow border-0 p-0">
+                        <li><a class="dropdown-item" href="#">Tout</a></li>
+                        <li><a class="dropdown-item" href="#">Mail</a></li>
+                        <li><a class="dropdown-item" href="#">Validation</a></li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-3">
+                <div class="rounded-3 p-3 mb-3 bg-white style_font_size_small h-100">
+                    <div class="row align-items-center h-100">
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Description</span>
+                                <h6 class="mb-0 style_bold">Le port du serveur de messagerie</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Paramètre</span>
+                                <h6 class="mb-0">Port</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Valeur</span>
+                                <h6 class="mb-0">587</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-auto my-2">
+                            <div class="d-flex justify-content-between">
+                                  <a href="#" title="Continuer" type="button" class="btn btn-link p-1 text-success"  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModalSpumettreFile"><i class="bi-pencil-square"></i></a>
+                              </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <div class="rounded-3 p-3 mb-3 bg-white style_font_size_small h-100">
+                    <div class="row align-items-center h-100">
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Description</span>
+                                <h6 class="mb-0 style_bold">strings</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Paramètre</span>
+                                <h6 class="mb-0">sender</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Valeur</span>
+                                <h6 class="mb-0">efoncier@finances.bj</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-auto my-2">
+                            <div class="d-flex justify-content-between">
+                                  <a href="#" title="Continuer" type="button" class="btn btn-link p-1 text-success"  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModalSpumettreFile"><i class="bi-pencil-square"></i></a>
+                              </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <div class="rounded-3 p-3 mb-3 bg-white style_font_size_small h-100">
+                    <div class="row align-items-center h-100">
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Description</span>
+                                <h6 class="mb-0 style_bold">Champs modifiés</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Paramètre</span>
+                                <h6 class="mb-0">host</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Valeur</span>
+                                <h6 class="mb-0">mail.finances.bj</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-auto my-2">
+                            <div class="d-flex justify-content-between">
+                                  <a href="#" title="Continuer" type="button" class="btn btn-link p-1 text-success"  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModalSpumettreFile"><i class="bi-pencil-square"></i></a>
+                              </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <div class="rounded-3 p-3 mb-3 bg-white style_font_size_small h-100">
+                    <div class="row align-items-center h-100">
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Description</span>
+                                <h6 class="mb-0 style_bold">Le destinataire f de la copie caché	</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Paramètre</span>
+                                <h6 class="mb-0">recipient_cc</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm my-2">
+                            <div>
+                                <span>Valeur</span>
+                                <h6 class="mb-0">efbandf@gmail.com</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-auto my-2">
+                            <div class="d-flex justify-content-between">
+                                  <a href="#" title="Continuer" type="button" class="btn btn-link p-1 text-success"  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModalSpumettreFile"><i class="bi-pencil-square"></i></a>
+                              </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>

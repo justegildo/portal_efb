@@ -1,0 +1,77 @@
+<body>
+    <main class="">
+        
+        <div class="container-fluid">
+            <div class="row" style="min-height: calc(100vh - 8px);">
+                <div class="col-sm align-self-center">
+                    <div class="col-sm-8 mx-auto py-2">
+                        <div class="text-center mb-4">
+                            <img class="mb-3 img-fluid" src="assets/img/efb.svg" alt="logo_signin.svg" width="150">
+                            <h3 class="text-success">Connexion à votre espace administratif</h3>
+                        </div>
+                        <form class="style_form_signin w-100 m-auto" #loginForm="ngForm" role="form" (ngSubmit)="save()">
+
+                            <div class="form-floating style_form_feedback mb-3">
+                                <input type="email" class="form-control" id="floatingInput" [(ngModel)]="user.username" 
+                                    name="username" placeholder="name@example.com" required>
+                                <label for="floatingInput">Addresse Mail</label>
+                                <div class="style_form_feedback_icon d-flex align-items-center">
+                                    <i class="bi-person me-2" style="font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <div class="form-floating style_form_feedback mb-3">
+                                <input [type]="hide ? 'password' : 'text'" class="form-control" id="floatingPassword" 
+                                    [(ngModel)]="user.password" name="password" placeholder="Mot de passe" required="">
+                                <label for="floatingPassword">Mot de passe</label>
+                                <div class="style_form_feedback_icon d-flex align-items-center">
+                                    <i class="bi-lock me-2" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="style_form_feedback_icon_end d-flex align-items-center"  (click)="hide = !hide">
+                                    <button type="button" class="style_btn_icon">
+                                        <i attr.class="{{hide ? 'bi-eye-slash' : 'bi-eye'}}"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                                    <label class="form-check-label" for="inlineCheckbox3">Se sourvenir</label>
+                                </div>
+                                <a class="text-danger" href="forget_password.html">Mot de passe oublié</a>
+                            </div>
+                            <a (click)="save()" class="w-100 btn btn-lg btn-success shadow-lg py-3" type="submit">
+                                <i class="bi bi-chevron-right me-2"></i>
+                                <span *ngIf="_progress" class="spinner-grow spinner-grow-sm mr-1" role="status" aria-hidden="true"></span>
+                                Connexion
+                            </a>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm p-0">
+                    <div class="h-100 style_bg_img" style="background-image: url('assets/img/imgpsh_fullsize_anim (1).png');">
+                        <div class="p-5 h-100 d-flex flex-column justify-content-center" style="background-color:rgba(0, 0, 0, 0.5);">
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-8 mx-auto">
+                                        <h4 class="text-white mb-4 fw-bolder">E-Foncier Bénin</h4>
+                                        <p class="text-white style_font_size_small mb-3" style="text-align: justify;">Dans le souci de préserver l’intégrité de son territoire et de garantir les droits de propriété acquis suivant les lois et règlements ainsi que les règles coutumières par les personnes physiques et morales de droit public ou privé, l’Etat béninois a entrepris une réforme foncière dont l’un des premiers jalons est la loi n° 2013-01 du 14 août 2013 portant Code Foncier et Domanial (CFD) en République du Bénin. Ladite loi institue, en ses articles 452 et suivants, le cadastre ainsi que les règles qui le régissent. </p>
+                                        <div class=" mt-4">
+                                            <p class="style_font_size_small text-white style_medium">Copyright © ANDF.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="">
+        <div class="row m-0">
+            <span class="col py-1 m-0" style="background-color: #0C623B;"></span>
+            <span class="col py-1 m-0" style="background-color: #FEC929;"></span>
+            <span class="col py-1 m-0" style="background-color: #ED242C;"></span>
+        </div>
+    </footer>
+</body>

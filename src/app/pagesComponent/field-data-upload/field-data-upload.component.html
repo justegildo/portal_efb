@@ -1,0 +1,326 @@
+<body>
+    <main class="pt-5 mt-3" style="min-height: calc(100vh - 60px);">
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalSpumettreFile" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalInitialisationLabel" aria-hidden="true" style="background: linear-gradient(90deg, rgba(226, 244, 242, 0.6) -2.71%, rgba(248, 248, 239, 0.6) 58.43%, rgba(249, 237, 238, 0.6) 100%);">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0">
+              <div class="modal-header border-0 pb-0 align-items-start">
+                <h5 class="mb-0" id="exampleModalInitialisationLabel">Formulaire d'envoi de fichier</h5>
+                <button type="button" class="btn-close ms-md-5" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body ">
+                <form class="" name="form" #f="ngForm">
+                    <div class="mb-3">
+                        <label for="projectCode" class="mb-1">Code Projet <span class="text-danger">*</span></label>
+                        <input class="form-control" placeholder="Ex: 789009873789" type="text" [(ngModel)]="model.projectCode" name="projectCode" id="projectCode" 
+                        required>
+                    </div>
+                    <div class="mb-3" >
+                        <h6><i class="text-success bi-bookmark-check me-2"></i>Type Validation <span class="text-danger">*</span></h6>
+                        <div class="form-check form-check-inline mb-2">
+                          <input class="form-check-input" value="choiceOne" onclick="variationBloc();" [(ngModel)]="choiceAction" type="radio" name="inlineRadioOptions" id="inlineRadio1" >
+                          <label class="form-check-label" for="inlineRadio1">Seul</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" value="choiceTwo" onclick="variationBloc();" checked="checked" type="radio" name="inlineRadioOptions" id="inlineRadio2" [(ngModel)]="choiceAction">
+                          <label class="form-check-label" for="inlineRadio2">Avec Publicité</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" value="choiceThree" onclick="variationBloc();" [(ngModel)]="choiceAction" type="radio" name="inlineRadioOptions" id="inlineRadio3" >
+                          <label class="form-check-label" for="inlineRadio3">Comparaison</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" value="choiceFour" onclick="variationBloc();" [(ngModel)]="choiceAction" type="radio" name="inlineRadioOptions" id="inlineRadio4" >
+                          <label class="form-check-label" for="inlineRadio4">Après Publicité</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3" id="lieuPub">
+                        <h6><i class="text-success bi-calendar-range me-2"></i>Lieu & délai de publication <span class="text-danger">*</span></h6>
+                        <div class="row">
+                              <div class="col-sm-4 mb-2">
+                                  <label class="mb-1">Lieu <span class="text-danger">*</span></label>
+                                  <input class="form-control" type="text" placeholder="Lieu de publication">
+                            </div>
+                            <div class="col-sm-4 mb-2">
+                                  <label class="mb-1">Date de début <span class="text-danger">*</span></label>
+                                  <input class="form-control" type="date" placeholder="Recherche">
+                            </div>
+                            <div class="col-sm-4 mb-2">
+                                  <label class="mb-1">Date de fin<span class="text-danger">*</span></label>
+                                  <input class="form-control" type="date" placeholder="Recherche">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2" id="afterPub">
+                        <div class="col-sm-6">
+                            <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Procès Verbal <span class="text-danger">*</span></h6>
+                            <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3">
+                                <div class="m-2 text-center">
+                                    <h1 class="display-4 mb-0"><i class="bi-file-earmark-pdf"></i></h1>
+                                    <p class="mb-0">Charger le fichier <span class="text-success">ici</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Tableau de modification <span class="text-danger">*</span></h6>
+                            <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3">
+                                <div class="m-2 text-center">
+                                    <h1 class="display-4 mb-0"><i class="bi-file-earmark-excel"></i></h1>
+                                    <p class="mb-0">Charger le fichier <span class="text-success">ici</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="d-flex justify-content-between">
+                            <div class="me-3">
+                                <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Charger les fichiers <span class="text-danger">*</span></h6>
+                            </div>
+                            <!-- <div class="form-check form-switch form-check-reverse">
+                                <label class="form-check-label style_font_size_small" for="flexSwitchCheckDefault">GeoJSON tout en un</label>
+                                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            </div> -->
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-4 mb-2" >
+                                <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100" (click)="fileM.click()">
+                                    <div class="m-2 text-center">
+                                        <h1 class="display-4 mb-0"><i class="bi-filetype-json"></i></h1>
+                                        <p class="mb-0" *ngIf="!selectedFileGeoJson">Charger le fichier geoJSON <span class="text-success">ici</span></p>
+                                        {{ selectedFileGeoJson?.name }}
+                                    </div>
+                                    <input hidden type="file" #fileM accept=".geoJSON" (change)="onFileSelectedGeoJson($event)" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mb-2">
+                                <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100" (click)="fileM2.click()">
+                                    <div class="m-2 text-center">
+                                        <h1 class="display-4 mb-0"><i class="bi-file-earmark-excel"></i></h1>
+                                        <p class="mb-0" *ngIf="!selectedFileExcel">Charger le fichier socio <span class="text-success">ici</span></p>
+                                        {{ selectedFileExcel?.name }}
+                                    </div>
+                                    <input hidden type="file" #fileM2 accept=".csv" (change)="onFileSelectedExcel($event)" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mb-2">
+                                <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100" (click)="fileM3.click()">
+                                    <div class="m-2 text-center">
+                                        <h1 class="display-4 mb-0"><i class="bi-file-zip"></i></h1>
+                                        <p class="mb-0" *ngIf="!selectedFileZip">Charger le fichier zip <span class="text-success">ici</span></p>
+                                        {{ selectedFileZip?.name }}
+                                    </div>
+                                    <input hidden type="file" #fileM3 accept=".zip" (change)="onFileSelectedZip($event)" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                  </form>
+              </div>
+              <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi-x me-1"></i>Fermer</button>
+                <button type="submit" class="btn btn-success shadow-sm" (click)="sendOne()"><i class="bi-check me-1"></i>Valider</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-sm-6 mb-2">
+                    <div class="">
+                        <h4 class="mb-0">Liste des données collectées sur le terrain</h4>
+                        <div class="d-flex flex-nowrap align-items-center">
+                            <!-- <p class="style_bord text-muted mb-0 me-1"><i class="bi-calendar me-2"></i>12 Avril 2022 - 26 Avril 2022</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mb-2">
+                    <div class="d-flex flex-wrap justify-content-end">
+                        <form class="d-flex flex-fill mb-2" role="search">
+                            <div class="input-group">
+                              <div class="dropdown">
+                                    <button class="btn btn-light border border-end-0 dropdown-toggle style_after_none rounded-end-0" type="button" id="button-addon1" data-bs-toggle="dropdown" aria-expanded="false">
+                                      <i class="bi-sliders2"></i>
+                                  </button>
+                                  <div class="dropdown-menu p-3 border-0 shadow-lg" style="min-width:19rem; max-height: 300px; overflow-y: auto;">
+                                      <form class="">
+                                        <div class="mb-2">
+                                            <label class="mb-1">Code projet <span class="text-danger">*</span></label>
+                                            <input class="form-control" type="search" placeholder="Filtrer" aria-label="Search">
+                                        </div>
+                                        <div class="mb-2">
+                                            <label class="mb-1">Type <span class="text-danger">*</span></label>
+                                            <select class="form-control form-select">
+                                                <option>sélectionner</option>
+                                                <option>Don</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <label class="mb-1">Statut <span class="text-danger">*</span></label>
+                                            <select class="form-control form-select">
+                                                <option>sélectionner</option>
+                                                <option>Don</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-success w-100">Rechercher</button>
+                                      </form>
+                                  </div>
+                              </div>
+                              <input class="form-control rounded-start-0" type="search" placeholder="Filtrer" aria-label="Search" aria-describedby="button-addon1">
+                            </div>
+                          </form>
+                          <div class="mb-2 ms-2">
+                              <button href="#" class="btn btn-success text-nowrap shadow-lg w-100" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModalSpumettreFile" ><i class="bi-upload me-2"></i>Soumettre un fichier</button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table align-middle">
+                  <thead class="">
+                    <tr class="text-nowrap bg-white">
+                      <th scope="col">Code projet</th>
+                      <th scope="col">Fichier</th>
+                      <th scope="col">Validation</th>
+                      <th scope="col">Lieu de publication</th>
+                      <th scope="col">Statut</th>
+                      <th scope="col">Date de soumission</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="text-nowrap bg-white" *ngFor="let data of datas">
+                        <td>
+                            # <span class="badge bg-light text-dark border">{{data.projectCode}}</span>
+                        </td>
+
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <p class="style_font_size_small text-wrap mb-0 text-secondary">{{data.filename}}</p>
+                            </div>
+                        </td>
+
+                        <td *ngIf="data.actionUpload === 'ONLY_VALIDATION'">
+                            <span class="text-danger style_semiBold">Validation seule</span>
+                        </td>
+                        <td *ngIf="data.actionUpload === 'VALIDATION_AND_PUBLICATION'">
+                            <span class="text-success style_semiBold">Avec publicité</span>
+                        </td>
+                        <td *ngIf="data.actionUpload === 'APPROVAL_AFTER_INSPECTION'">
+                            <span class="text-primary style_semiBold">Après publicité</span>
+                        </td>
+                        <td *ngIf="data.actionUpload === 'ONLY_VALIDATION_AFTER_INSPECTION'">
+                            <span class="text-primary style_semiBold">Pré-Comparaison</span>
+                        </td>
+
+                        <td>
+                            <span>{{(data.placeOfPublication === 'undefined') || (data.placeOfPublication === "") ? 'Néant' : data.placeOfPublication }}</span>
+                        </td>
+
+                        <td *ngIf="data.status === 'RECEIVED'">
+                            <span class="badge bg-primary text-white">Reçu</span>
+                        </td>
+                        <td *ngIf="data.status === 'INPROGRESS'">
+                            <span class="badge bg-primary text-white">En attente</span>
+                        </td>
+                        <td *ngIf="data.status === 'REJETTED'">
+                            <span class="badge bg-danger text-white">Rejeté</span>
+                        </td>
+                        <td *ngIf="data.status === 'ACCEPTED'">
+                            <span class="badge bg-success text-white">Validé</span>
+                        </td>
+                        <td *ngIf="data.status === 'COMPLETED'">
+                            <span class="badge bg-primary text-white">Autorisé</span>
+                        </td>
+                        <td *ngIf="data.status === 'TRANSFERT_IN_PROGRESS'">
+                            <span class="badge bg-primary text-white">TRANSFERT EN COURS</span>
+                        </td>
+                        <td *ngIf="data.status === 'TRANSFERED'">
+                            <span class="badge bg-primary text-white">Transféré</span>
+                        </td>
+
+                        <td>
+                            <span class="my-0 d-block">{{data.submission | date: 'dd/MM/yyyy' }},</span>
+                            <small class="style_font_size_small text-muted">{{ data.submission | date:'HH:mm' }}</small>
+                        </td>
+                        <td>
+                    
+                            <div class="">
+                                <a href="#" class="style_link text-primary dropdown-toggle d-flex align-items-center justify-content-center"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <p class="mb-0">Docs</p>
+                                </a>
+                    
+                                <ul class="dropdown-menu dropdown-menu-end p-0 border-0 shadow-lg">
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center py-3" 
+                                            *ngIf="(data.status === 'ACCEPTED' || data.status === 'REJETTED' || data.status === 'INPROGRESS' || data.status === 'COMPLETED'  || data.status ===  'TRANSFERED' || data.status === 'REJETTED') && (data.actionUpload === 'ONLY_VALIDATION' || data.actionUpload === 'VALIDATION_AND_PUBLICATION' || data.actionUpload === 'APPROVAL_AFTER_INSPECTION'|| data.actionUpload === 'ONLY_VALIDATION_AFTER_INSPECTION' )" (click)="rapport(data.filename)" 
+                                        >
+                                            <h6 class="mb-0 me-2"><i class="bi-file-earmark-check-fill"></i></h6>
+                                            <span>Rapport de validation</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center py-3" 
+                                            *ngIf=" data.status === 'ACCEPTED' &&  data.actionUpload === 'ONLY_VALIDATION_AFTER_INSPECTION' " (click)="rapport_comparaison(data.filename)"
+                                        >
+                                            <h6 class="mb-0 me-2"><i class="bi-map-fill"></i></h6>
+                                            <span>Rapport comparaison</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center py-3" 
+                                            *ngIf="(data.status === 'ACCEPTED' || data.status ===  'TRANSFERED' || data.status === 'COMPLETED') && (data.actionUpload === 'VALIDATION_AND_PUBLICATION' || data.actionUpload === 'APPROVAL_AFTER_INSPECTION' )" (click)="cadastralMap(data.filename)"
+                                        >
+                                            <h6 class="mb-0 me-2"><i class="bi-map-fill"></i></h6>
+                                            <span>Plan Cadastral</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center py-3" 
+                                            *ngIf="(data.status === 'ACCEPTED' || data.status === 'COMPLETED'  || data.status ===  'TRANSFERED') && (data.actionUpload === 'VALIDATION_AND_PUBLICATION' || data.actionUpload === 'APPROVAL_AFTER_INSPECTION' )"
+                                        >
+                                            <h6 class="mb-0 me-2"><i class="bi-file-earmark-pdf-fill"></i></h6>
+                                            <span>Répertoire (PDF)</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item d-flex align-items-center py-3" href="#">
+                                            <h6 class="mb-0 me-2"><i class="bi-file-earmark-excel-fill"></i></h6>
+                                            <span>Répertoire (Excel)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                    
+                        </td>
+                    </tr>
+    
+                  </tbody>
+                </table>
+            </div>
+            <!-- <nav class="style_pagination">
+              <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                  <a class="page-link style_page_link">«</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item disabled"><a class="page-link style_page_link" href="#">/</a></li>
+                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                <li class="page-item">
+                  <a class="page-link style_page_link" href="#">»</a>
+                </li>
+              </ul>
+            </nav> -->
+        </div>
+    </main>
+</body>

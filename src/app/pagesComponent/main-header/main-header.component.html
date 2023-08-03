@@ -1,0 +1,106 @@
+<body>
+    <div class="menu">
+        <header class="">
+            <nav class="navbar navbar-expand-lg bg-white py-0 fixed-top shadow">
+                <div class="container">
+                    <a href="#">
+                        <img class="img-fluid navbar-brand" src="assets/img/efb.svg" alt="logo.svg" width="70">
+                    </a>
+                    <button class="navbar-toggle d-lg-none border-0 bg-transparent" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 flex-fill justify-content-end">
+                            <li class="nav-item mx-4">
+                                <a [routerLink]="['/procedure-d-enregistrement-collectif/statistique']"
+                                    class="nav-link d-flex flex-column align-items-center justify-content-center">
+                                    <h4 class="mb-0"><i class="bi-clipboard-data-fill"></i></h4>
+                                    <span class="style_font_size_small">Statistiques</span>
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4">
+                                <a [routerLink]="['/procedure-d-enregistrement-collectif/enregistrement']"
+                                    class="nav-link active d-flex flex-column align-items-center justify-content-center">
+                                    <h4 class="mb-0"><i class="bi-database-fill"></i></h4>
+                                    <span class="style_font_size_small">Données</span>
+                                </a>
+                            </li>
+                            <li class="nav-item mx-4 dropdown">
+                                <a href="#"
+                                    class="nav-link dropdown-toggle d-flex flex-column align-items-center justify-content-center style_after_none"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <h4 class="mb-0"><i class="bi-gear-fill"></i></h4>
+                                    <span class="style_font_size_small">Configurations</span>
+                                </a>
+                                <ul class="dropdown-menu p-0 border-0 shadow-lg">
+                                    <li><a class="dropdown-item py-2" [routerLink]="['/procedure-d-enregistrement-collectif/parameter']">Paramètres</a></li>
+                                    <li><a class="dropdown-item py-2" [routerLink]="['/procedure-d-enregistrement-collectif/user-system']">Utilisateurs</a></li>
+                                    <li><a class="dropdown-item py-2" href="http://172.17.0.70:3000">Supervisions</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 flex-fill justify-content-end" >
+                            <li class="nav-item dropdown">
+                                <a href="#"
+                                    class="nav-link dropdown-toggle d-flex flex-column align-items-center justify-content-center style_after_none"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div
+                                        class="style_navbar_profil rounded-circle p-2 text-white d-flex justify-content-center align-items-center">
+                                        <span class="mb-0" style="font-size: 0.6rem;">{{name?.charAt(0) }} {{firstname?.charAt(0)}}</span>
+                                    </div>
+                                    <span class="style_font_size_small">{{name | uppercase}} {{firstname}}</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end p-0 border-0 shadow-lg">
+                                    <li><a class="dropdown-item py-2" [routerLink]="['/procedure-d-enregistrement-collectif/profile-user']">Mon profil</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider p-0 m-0">
+                                    </li>
+                                    <li><a class="dropdown-item py-2" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModalDeconnexion" type="button"
+                                            href="#">Déconnexion</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalDeconnexion" data-bs-backdrop="static" tabindex="-1"
+                aria-labelledby="exampleModalInitialisationLabel" aria-hidden="true"
+                style="background: linear-gradient(90deg, rgba(226, 244, 242, 0.6) -2.71%, rgba(71, 71, 60, 0.6) 58.43%, rgba(249, 237, 238, 0.6) 100%);">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content border-0">
+                        <div class="modal-header border-0 pb-0 align-items-start">
+                            <h5 class="mb-0" id="exampleModalInitialisationLabel">Vous êtes sur le point de vous
+                                déconnecter</h5>
+                            <button type="button" class="btn-close ms-md-5" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body ">
+                            <div
+                                class="h-100 py-4 style_gradient text-center p-3 rounded-3 d-flex flex-column align-items-center text-success">
+                                <h1 class="mb-1 display-3"><i class="bi-door-open"></i></h1>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-0 pt-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                                    class="bi-x me-1"></i>Non</button>
+                            <a (click)="deconnexion()" type="button" class="btn btn-success shadow-sm"><i
+                                    class="bi-check me-1"></i>Oui</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="">
+        <router-outlet></router-outlet>
+    </div>
+</body>

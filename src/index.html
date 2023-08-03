@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>E-FONCIER - BENIN</title>
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-customer.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <app-root></app-root>
+
+  <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    function variationBloc() {
+      if ($('#inlineRadio1 , #inlineRadio3').is(':checked')) {
+        $('#lieuPub').hide();
+        $('#afterPub').hide();
+      }
+      else if ($('#inlineRadio2').is(':checked')) {
+        $('#lieuPub').show();
+        $('#afterPub').hide();
+      }
+      else if ($('#inlineRadio4').is(':checked')) {
+        $('#lieuPub').hide();
+        $('#afterPub').show();
+      }
+    }
+    variationBloc();
+  </script>
+
+
+</body>
+
+</html>

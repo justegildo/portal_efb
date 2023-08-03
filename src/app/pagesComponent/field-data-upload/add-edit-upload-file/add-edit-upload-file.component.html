@@ -1,0 +1,128 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalSpumettreFile" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalInitialisationLabel" aria-hidden="true" style="background: linear-gradient(90deg, rgba(226, 244, 242, 0.6) -2.71%, rgba(248, 248, 239, 0.6) 58.43%, rgba(249, 237, 238, 0.6) 100%);">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0">
+        <div class="modal-header border-0 pb-0 align-items-start">
+          <h5 class="mb-0" id="exampleModalInitialisationLabel">Formulaire d'envoi de fichier</h5>
+          <button type="button" class="btn-close ms-md-5" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+          <form class="" name="form" #f="ngForm">
+              <div class="mb-3">
+                  <label class="mb-1">Code Projet <span class="text-danger">*</span></label>
+                  <input class="form-control" placeholder="Ex: 789009873789" type="text" name="projectCode" id="projectCode" 
+                  required>
+              </div>
+              <div class="mb-3">
+                  <h6><i class="text-success bi-bookmark-check me-2"></i>Type Validation <span class="text-danger">*</span></h6>
+                  <div class="form-check form-check-inline mb-2">
+                    <input class="form-check-input" onclick="variationBloc();" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Seul</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" onclick="variationBloc();" checked="checked" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">Avec Publicité</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" onclick="variationBloc();" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">Comparaison</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" onclick="variationBloc();" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option3">
+                    <label class="form-check-label" for="inlineRadio4">Après Publicité</label>
+                  </div>
+              </div>
+
+              <div class="mb-3" id="lieuPub">
+                  <h6><i class="text-success bi-calendar-range me-2"></i>Lieu & délai de publication <span class="text-danger">*</span></h6>
+                  <div class="row">
+                        <div class="col-sm-4 mb-2">
+                            <label class="mb-1">Lieu <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" placeholder="Lieu de publication">
+                      </div>
+                      <div class="col-sm-4 mb-2">
+                            <label class="mb-1">Date de début <span class="text-danger">*</span></label>
+                            <input class="form-control" type="date" placeholder="Recherche">
+                      </div>
+                      <div class="col-sm-4 mb-2">
+                            <label class="mb-1">Date de fin<span class="text-danger">*</span></label>
+                            <input class="form-control" type="date" placeholder="Recherche">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row mb-2" id="afterPub">
+                  <div class="col-sm-6">
+                      <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Procès Verbal <span class="text-danger">*</span></h6>
+                      <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3">
+                          <div class="m-2 text-center">
+                              <h1 class="display-4 mb-0"><i class="bi-file-earmark-pdf"></i></h1>
+                              <p class="mb-0">Charger le fichier <span class="text-success">ici</span></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Tableau de modification <span class="text-danger">*</span></h6>
+                      <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3">
+                          <div class="m-2 text-center">
+                              <h1 class="display-4 mb-0"><i class="bi-file-earmark-excel"></i></h1>
+                              <p class="mb-0">Charger le fichier <span class="text-success">ici</span></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="">
+                  <div class="d-flex justify-content-between">
+                      <div class="me-3">
+                          <h6><i class="text-success bi-file-earmark-arrow-up me-2"></i>Charger les fichiers <span class="text-danger">*</span></h6>
+                      </div>
+                      <!-- <div class="form-check form-switch form-check-reverse">
+                          <label class="form-check-label style_font_size_small" for="flexSwitchCheckDefault">GeoJSON tout en un</label>
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                      </div> -->
+                  </div>
+                  
+                  <div class="row">
+                      <div class="col-sm-4 mb-2" >
+                          <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100" (click)="fileM.click()"
+                              
+                          >
+                              <div class="m-2 text-center">
+                                  <h1 class="display-4 mb-0"><i class="bi-filetype-json"></i></h1>
+                                  <p class="mb-0">Charger le fichier geoJSON <span class="text-success">ici</span></p>
+                              </div>
+                              <input hidden type="file" #fileM accept=".geoJSON" required />
+                          </div>
+                      </div>
+                      <div class="col-sm-4 mb-2">
+                          <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100" (click)="fileM.click()">
+                              <div class="m-2 text-center">
+                                  <h1 class="display-4 mb-0"><i class="bi-file-earmark-excel"></i></h1>
+                                  <p class="mb-0">Charger le fichier socio <span class="text-success">ici</span></p>
+                              </div>
+                              <input hidden type="file" #fileM accept=".pdf" required />
+                          </div>
+                      </div>
+                      <div class="col-sm-4 mb-2">
+                          <div class="p-3 rounded-3 d-flex align-items-center flex-column style_file_upload_bloc mb-3 h-100" (click)="fileM.click()">
+                              <div class="m-2 text-center">
+                                  <h1 class="display-4 mb-0"><i class="bi-file-zip"></i></h1>
+                                  <p class="mb-0">Charger le fichier zip <span class="text-success">ici</span></p>
+                              </div>
+                              <input hidden type="file" #fileM accept=".zip" required />
+                          </div>
+                      </div>
+                  </div>
+
+                  
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi-x me-1"></i>Fermer</button>
+          <button type="submit" class="btn btn-success shadow-sm" ><i class="bi-check me-1"></i>Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
